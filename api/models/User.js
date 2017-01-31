@@ -54,7 +54,7 @@ module.exports = {
    */
 
   attemptLogin: function (inputs, cb) {
-    
+
     // Create a user
     User.findOne({
       email: inputs.email,

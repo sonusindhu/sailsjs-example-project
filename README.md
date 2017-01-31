@@ -1,3 +1,3 @@
-# test-project
+# sailsjs-example-project
+Example project with authenication with sailsjs+nodejs+mongodb
 
-a [Sails](http://sailsjs.org) application
