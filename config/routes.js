@@ -20,7 +20,7 @@
  * http://sailsjs.org/#!/documentation/concepts/Routes/RouteTargetSyntax.html
  */
 
-module.exports.routes = {
+ module.exports.routes = {
 
     /***************************************************************************
      *                                                                          *
@@ -32,7 +32,7 @@ module.exports.routes = {
      *                                                                          *
      ***************************************************************************/
 
-    '/': {
+     '/': {
         view: 'homepage'
     },
     'get /features': {view: 'page/features'},
@@ -45,7 +45,18 @@ module.exports.routes = {
     '/dashboard': {view: 'user/dashboard'},
     'post /login': 'UserController.login',
     'post /signup': 'UserController.signup',
-    '/logout': 'UserController.logout'
+    '/logout': 'UserController.logout',
+
+
+
+    /*
+    * Admin routes here
+    */
+    'get /admin/dashboard': {
+        view: 'admin/dashboard' , locals: { layout: 'layouts/admin' }
+    },
+
+
 
             /***************************************************************************
              *                                                                          *
@@ -57,4 +68,4 @@ module.exports.routes = {
              *                                                                          *
              ***************************************************************************/
 
-};
+         };

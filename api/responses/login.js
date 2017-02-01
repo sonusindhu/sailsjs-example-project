@@ -35,8 +35,10 @@ module.exports = function login(inputs) {
 
     // "Remember" the user in the session
     // Subsequent requests from this user agent will have `req.session.me` set.
+    req.session.user_type = user.user_type;
     req.session.name = user.name;
     req.session.me = user.id;
+
 
     // If this is not an HTML-wanting browser, e.g. AJAX/sockets/cURL/etc.,
     // send a 200 response letting the user agent know the login was successful.
@@ -44,7 +46,6 @@ module.exports = function login(inputs) {
     if (req.wantsJSON || !inputs.successRedirect) {
       return res.ok();
     }
-
     // Otherwise if this is an HTML-wanting browser, redirect to /.
     return res.redirect(inputs.successRedirect);
   });
