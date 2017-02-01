@@ -53,7 +53,10 @@
     * Admin routes here
     */
     'get /admin/dashboard': {
-        view: 'admin/dashboard' , locals: { layout: 'layouts/admin' }
+        view: 'admin/dashboard', locals: { layout: 'layouts/admin' }
+    },
+    'get /admin/users': {
+        controller: 'UserController', action: 'list', locals: { layout: 'layouts/admin' }
     },
 
 

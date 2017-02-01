@@ -62,6 +62,15 @@ module.exports = {
       password: inputs.password
     })
     .exec(cb);
+  },
+
+
+
+  findAll: function (cb) {
+    // find all users
+    User.find()
+    .exec(cb);
   }
+
 };
 

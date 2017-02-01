@@ -5,12 +5,12 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
-module.exports = {
+ module.exports = {
 
   /**
    * `UserController.login()`
    */
-  login: function (req, res) {
+   login: function (req, res) {
 
     // See `api/responses/login.js`
     return res.login({
@@ -25,7 +25,7 @@ module.exports = {
   /**
    * `UserController.logout()`
    */
-  logout: function (req, res) {
+   logout: function (req, res) {
 
     // "Forget" the user from the session.
     // Subsequent requests from this user agent will NOT have `req.session.me`.
@@ -46,9 +46,9 @@ module.exports = {
   /**
    * `UserController.signup()`
    */
-  signup: function (req, res) {
-      
-   
+   signup: function (req, res) {
+
+
     //retrun false;
     // Attempt to signup a user using the provided parameters
     User.signup({
@@ -76,6 +76,33 @@ module.exports = {
       // Otherwise if this is an HTML-wanting browser, redirect to /welcome.
       return res.redirect('/dashboard');
     });
+  },
+
+
+
+  /**
+   * `UserController.list()`
+   */
+   list: function (req, res) {
+
+
+
+    User.findAll(function (err, user) {
+      console.log(user);
+      // res.negotiate() will determine if this is a validation error
+      // or some kind of unexpected server error, then call `res.badRequest()`
+      // or `res.serverError()` accordingly.
+      if (err) return res.negotiate(err);
+      var users;
+      res.view('admin/users/index', {"users":user});
+      
+    });
+
+
+    
+
   }
+
+
 };
 
